@@ -8,8 +8,10 @@ function App() {
 
   return (
     <ColorModeContext.Provider value={colorMode}>{/*способ настроить наш цвет */}
+    <ThemeProvider theme={theme}>{/*поставщик чтобы пользовательский интерфейс имел к нему доступ */}
     <div className="App">
     </div>
+    </ThemeProvider>
     </ColorModeContext.Provider>
   );
 }
