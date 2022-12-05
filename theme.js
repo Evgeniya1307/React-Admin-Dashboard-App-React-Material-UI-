@@ -201,16 +201,19 @@ export const tokens = (mode) => ({
   });
   
   export const useMode = () => { //постоянное использование 
-    const [mode, setMode] = useState("dark");
+    const [mode, setMode] = useState("dark");//начинаю с тёмной темы
   
-    const colorMode = useMemo(
-      () => ({
-        toggleColorMode: () =>
-          setMode((prev) => (prev === "light" ? "dark" : "light")),
+    const colorMode = useMemo(//цветовой режим 
+      () => ({//передаю функцию 
+        toggleColorMode: () => //переключать цветовой режим 
+          setMode((prev) => (prev === "light" ? "dark" : "light")),//предыдущий ===лёгкий это тёмный если неравно свету то установить на свет
       }),
       []
     );
   
-    const theme = useMemo(() => createTheme(themeSettings(mode)), [mode]);
+    const theme = useMemo(() => createTheme(themeSettings(mode)), [mode]);//создаю тему настройки, режим 
     return [theme, colorMode];
   };
+
+
+  //createTheme создаёт тему из Material UI
