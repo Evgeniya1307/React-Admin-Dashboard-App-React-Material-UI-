@@ -212,7 +212,7 @@ export const tokens = (mode) => ({
     );
   
     const theme = useMemo(() => createTheme(themeSettings(mode)), [mode]);//создаю тему настройки, режим 
-    return [theme, colorMode];
+    return [theme, colorMode];//возвращаю тему и цветовой режим для использования
   };
 
 
