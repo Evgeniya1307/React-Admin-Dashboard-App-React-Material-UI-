@@ -126,11 +126,11 @@ export const tokens = (mode) => ({
   export const themeSettings = (mode) => {
     const colors = tokens(mode);//использую постоянные цвета
     return {
-      palette: {
-        mode: mode,
+      palette: { //палитра вернуть объект 
+        mode: mode,//из режима в режим
         ...(mode === "dark"
           ? {
-              // palette values for dark mode
+              // значения палитры для темного режима
               primary: {
                 main: colors.primary[500],
               },
