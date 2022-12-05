@@ -128,7 +128,7 @@ export const tokens = (mode) => ({
     return {
       palette: { //палитра вернуть объект 
         mode: mode,//из режима в режим
-        ...(mode === "dark"
+        ...(mode === "dark"//если равен тёмному 
           ? {
               // значения палитры для темного режима
               primary: {
@@ -146,7 +146,7 @@ export const tokens = (mode) => ({
                 default: colors.primary[500],
               },
             }
-          : {
+          : {//иначе
               //значения палитры для светлого режима
               primary: {
                 main: colors.primary[100],
@@ -197,10 +197,10 @@ export const tokens = (mode) => ({
   
   // контекст для цветового режима
   export const ColorModeContext = createContext({
-    toggleColorMode: () => {},
+    toggleColorMode: () => {},//будет изменять цвет
   });
   
-  export const useMode = () => {
+  export const useMode = () => { //постоянное использование 
     const [mode, setMode] = useState("dark");
   
     const colorMode = useMemo(
