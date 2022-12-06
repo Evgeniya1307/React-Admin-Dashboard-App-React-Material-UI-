@@ -1,7 +1,7 @@
 //все цвета и типы типографика 
 import { createContext, useState} from "react";
 import { createTheme } from "@mui/material/styles";
-
+import React from "react";
 // создаю жетоны цветого дизайна цвета все которые буду использовать 
 
 export const tokens = (mode) => ({
@@ -201,9 +201,9 @@ export const tokens = (mode) => ({
   });
   
   export const useMode = () => { //постоянное использование 
-    const [mode, setMode] = useState("dark");//начинаю с тёмной темы
+    const [mode, setMode] = React.useState("dark");//начинаю с тёмной темы
   
-    const colorMode = useMemo(//цветовой режим 
+    const colorMode = React.useMemo(//цветовой режим 
       () => ({//передаю функцию 
         toggleColorMode: () => //переключать цветовой режим 
           setMode((prev) => (prev === "light" ? "dark" : "light")),//предыдущий ===лёгкий это тёмный если неравно свету то установить на свет
@@ -211,7 +211,7 @@ export const tokens = (mode) => ({
       []
     );
   
-    const theme = useMemo(() => createTheme(themeSettings(mode)), [mode]);//создаю тему настройки, режим 
+    const theme = React.useMemo(() => createTheme(themeSettings(mode)), [mode]);//создаю тему настройки, режим 
     return [theme, colorMode];//возвращаю тему и цветовой режим для использования
   };
 
